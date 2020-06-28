@@ -1,7 +1,5 @@
 # Build a Kubernetes cluster using k3s via Ansible
 
-Author: <https://github.com/itwars>
-
 ## Usage
 
 First create a new directory based on the `sample` directory within the `inventory` directory:
