@@ -1,0 +1,16 @@
+
+- name: copy the install_k3s.sh script to the remote host
+  copy:
+    src: install_k3s.sh
+    dest: /tmp/install_k3s.sh
+    mode: 0755
+  tags:
+    - k3s
+
+- name: run the install_k3s.sh script for a server if k3s_url is not defined
+  shell: "/tmp/install_k3s.sh server"
+  args:
+      creates: "/usr/local/bin/k3s"
+  when: k3s_url is not defined
+  tags:
+    - k3s
