@@ -23,3 +23,12 @@
   when: k3s_join_url is defined 
   tags:
     - k3s
+
+
+- name: Deploy metallb template file to the remote host
+  template:
+    src: metallb-config.yaml.j2
+    dest: /etc/k3s/metallb-config.yaml
+  when: metallb_ip_range is defined
+  tags:
+    - k3s 
